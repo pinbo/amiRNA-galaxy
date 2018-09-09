@@ -100,7 +100,7 @@ eval {
 			print $target->{mismatches} . "\t";
 			print sprintf("%.1f", $target->{dG}) . "\t";
 			print sprintf("%.1f", $target->{dG_ratio}) . "\t";
-			print $target->{query_string} . "\t";
+			print lc($target->{query_string}) . "\t";
 			print markdiff($target->{query_string}, $target->{target_string}) . "\n";
 			#print $target->{sequence} . "\t";
 			#print $target->{message} . "\n";
@@ -123,10 +123,10 @@ exit(0);
 sub markdiff {
 my ($s1, $s2) = @_;
 my $c3 = "";
-for my $i (0..length($s1)-1){
+for my $i (0..length($s2)-1){
     my $c1 = substr($s1, $i, 1);
     my $c2 = substr($s2, $i, 1);
-    $c3 .= $c1 eq $c2 ? $c2 : lc($c2);
+    $c3 .= $c1 eq $c2 ? lc($c2) : $c2;
        
 }
 return $c3;
