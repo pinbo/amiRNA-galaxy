@@ -84,6 +84,7 @@ if($@) {
 eval {
 	chomp($opt_i);
 	print "\n\nMiRNA-Seq: $opt_i\n\n";
+	print "Target\tBegin\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\n";
 
 	### Search for query string
 	#print "Test 1";
@@ -93,16 +94,16 @@ eval {
 	# Loop through targets and print results
 	foreach my $target ( @{ $$targetSearch{searchResults}{targets} } ) {
 		if( ($target->{filter_passed} == 1) && ($target->{message} eq "passed") ) {
-			print "Target:\t";
+			#print "Target:\t";
 			print $target->{seq_id} . "\t";
 			print $target->{begin} . "\t";
 			print $target->{mismatches} . "\t";
 			print sprintf("%.1f", $target->{dG}) . "\t";
 			print sprintf("%.1f", $target->{dG_ratio}) . "\t";
 			print $target->{query_string} . "\t";
-			print $target->{target_string} . "\t";
-			print $target->{sequence} . "\t";
-			print $target->{message} . "\n";
+			print markdiff($target->{query_string}, $target->{target_string}) . "\n";
+			#print $target->{sequence} . "\t";
+			#print $target->{message} . "\n";
 		}
 	}
 };
@@ -118,6 +119,18 @@ if($@) {
 
 exit(0);
 
+# mark the difference as lowercase
+sub markdiff {
+my ($s1, $s2) = @_;
+my $c3 = "";
+for my $i (0..length($s1)-1){
+    my $c1 = substr($s1, $i, 1);
+    my $c2 = substr($s2, $i, 1);
+    $c3 .= $c1 eq $c2 ? $c2 : lc($c2);
+       
+}
+return $c3;
+}
 
 sub usage {
 	return <<EOT
