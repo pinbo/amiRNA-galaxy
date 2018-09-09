@@ -1,0 +1,27 @@
+<tool id="cDNA_blast" name="Find best cDNA matches">
+  <description>blast cDNA libraries</description>
+  <command>blastn -task blastn -db $genome -query $input -outfmt "7 std qlen slen" -num_threads 3 -word_size 7 -num_alignments 10 -evalue 1e-5 -out cDNA_blast.txt
+  </command>
+  
+  <inputs>
+    <param format="fasta" name="input" type="data" label="Sequences to blast"/>
+    <param name="genome" type="select" label="Transcript library to search" help="Default is wheat IWGSC v1.1 (gene names has 02G), where the gene names are different from v1.0 (gene name is 01G): TraesCS1B02G018700 vs. TraesCS1B01G018700">
+        <option value="Wheat IWGSC_v1.1_HC_20170706_cds">/Users/galaxy/blastdb/IWGSC_v1.1_HC_20170706_cds.fasta</option>
+        <option value="Arabidopsis TAIR8_cdna_20080412">/Users/galaxy/blastdb/TAIR8_cdna_20080412</option>
+    </param>
+  </inputs>
+
+  <outputs>
+	  <data format="tabular" name="blastout" from_work_dir="cDNA_blast.txt" label="${tool.id} output"/>
+  </outputs>
+
+  <help>
+
+**OVERVIEW**
+
+------
+
+For more information go to : https://github.com/pinbo/amiRNA-galaxy
+  </help>
+
+</tool>
