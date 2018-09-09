@@ -84,7 +84,7 @@ if($@) {
 eval {
 	chomp($opt_i);
 	print "\n\nMiRNA-Seq: $opt_i\n\n";
-	print "Target\tBegin\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\n";
+	print "Target\tGene_length\tBegin\tPosition_Percent\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\n";
 
 	### Search for query string
 	#print "Test 1";
@@ -96,7 +96,9 @@ eval {
 		if( ($target->{filter_passed} == 1) && ($target->{message} eq "passed") ) {
 			#print "Target:\t";
 			print $target->{seq_id} . "\t";
+			print $target->{gene_length} . "\t";
 			print $target->{begin} . "\t";
+			print sprintf("%.1f", $target->{begin} / $target->{gene_length} * 100) . "\t";
 			print $target->{mismatches} . "\t";
 			print sprintf("%.1f", $target->{dG}) . "\t";
 			print sprintf("%.1f", $target->{dG_ratio}) . "\t";
