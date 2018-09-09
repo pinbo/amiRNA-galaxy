@@ -8,8 +8,8 @@
     <param name="min_number_targets" size="100" type="text" value="1" label="At least how many of the given sequence names need to be targeted"/>
     <param name="offtarget_list" size="100" type="text" value="" label="List of acceptable offtargets (gene names as defined in transcript library)"/>
     <param name="genome" type="select" label="Transcript library to search" help="Default is wheat IWGSC v1.1 (gene names has 02G), where the gene names are different from v1.0 (gene name is 01G): TraesCS1B02G018700 vs. TraesCS1B01G018700">
-        <option value="Wheat IWGSC_v1.1_HC_20170706_cds">IWGSC_v1.1_HC_20170706_cds.fasta</option>
-        <option value="Arabidopsis TAIR8_cdna_20080412">TAIR8_cdna_20080412</option>
+        <option value="IWGSC_v1.1_HC_20170706_cds.fasta">Wheat IWGSC_v1.1_HC_20170706_cds</option>
+        <option value="TAIR8_cdna_20080412">Arabidopsis TAIR8_cdna_20080412</option>
     </param>
   </inputs>
 

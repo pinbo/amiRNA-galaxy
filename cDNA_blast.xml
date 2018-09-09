@@ -6,8 +6,8 @@
   <inputs>
     <param format="fasta" name="input" type="data" label="Sequences to blast"/>
     <param name="genome" type="select" label="Transcript library to search" help="Default is wheat IWGSC v1.1 (gene names has 02G), where the gene names are different from v1.0 (gene name is 01G): TraesCS1B02G018700 vs. TraesCS1B01G018700">
-        <option value="Wheat IWGSC_v1.1_HC_20170706_cds">/Users/galaxy/blastdb/IWGSC_v1.1_HC_20170706_cds.fasta</option>
-        <option value="Arabidopsis TAIR8_cdna_20080412">/Users/galaxy/blastdb/TAIR8_cdna_20080412</option>
+        <option value="/Users/galaxy/blastdb/IWGSC_v1.1_HC_20170706_cds.fasta">Wheat IWGSC_v1.1_HC_20170706_cds</option>
+        <option value="/Users/galaxy/blastdb/TAIR8_cdna_20080412">Arabidopsis TAIR8_cdna_20080412</option>
     </param>
   </inputs>
 
