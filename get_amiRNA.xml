@@ -1,12 +1,12 @@
 <tool id="Get_amiRNA" name="amiRNA design with WMD3">
   <description>amiRNA design</description>
-  <command>perl '$__tool_directory__/bin/test_Designer.pl' -g $genome -t $gene_list -m $min_number_targets -o $offtarget_list -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > amiRNA_list.txt
+  <command>perl '$__tool_directory__/bin/test_Designer.pl' -g $genome -t $gene_list -m $min_number_targets -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml $other_options > amiRNA_list.txt
   </command>
   
   <inputs>
     <param name="gene_list" size="100" type="text" value="" label="amiRNA target sequence name(s) (Separated with commas without space, for example, AT1G74280.1,AT1G74290.1,AT1G74300.1)"/>
     <param name="min_number_targets" size="100" type="text" value="1" label="At least how many of the given sequence names need to be targeted"/>
-    <param name="offtarget_list" size="100" type="text" value="" label="List of acceptable offtargets (gene names as defined in transcript library)"/>
+    <param name="other_options" size="100" type="text" value="" label="Other advanced options. For example, list of accepted off targets: '-o gene1,gene2' "/>
     <param name="genome" type="select" label="Transcript library to search" help="Default is wheat IWGSC v1.1 (gene names has 02G), where the gene names are different from v1.0 (gene name is 01G): TraesCS1B02G018700 vs. TraesCS1B01G018700">
         <option value="IWGSC_v1.1_HC_20170706_cds.fasta">Wheat IWGSC_v1.1_HC_20170706_cds</option>
         <option value="TAIR8_cdna_20080412">Arabidopsis TAIR8_cdna_20080412</option>
