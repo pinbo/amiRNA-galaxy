@@ -67,12 +67,12 @@ if(defined $opt_o) { $user_param{offtargets}   = $opt_o; }
 eval {
 	my $amiRNAdesigner = AmiRNA::Designer::AmiRNADesigner->new(%user_param);
 	$amiRNAdesigner -> design();
+	
+	print "amiRNA\tType\tScore\tMutations\tOptimal_energy\tTargets\n";
 
 	foreach my $amiRNA ( @{ $amiRNAdesigner->{miRNA_objs} } ) {
-		print	$amiRNA->{mirna_pattern} . "\t" . $amiRNA->{absolute} . "\t" . $amiRNA->{maybe} . "\t" .
-			$amiRNA->{relaxed_filter_32} . "\t" . $amiRNA->{relaxed_filter_28_32} . "\t" .
-			$amiRNA->{mutations} . "\t" . $amiRNA->{optimal_energy} . "\t" . $amiRNA->{targets} . "\t" .
-			$amiRNA->{type} . "\t" . $amiRNA->{score} . "\n";
+		print	$amiRNA->{mirna_pattern} . "\t" . $amiRNA->{type} . "\t" . $amiRNA->{score} . "\t" .
+			$amiRNA->{mutations} . "\t" . $amiRNA->{optimal_energy} . "\t" . $amiRNA->{targets} . "\n";
 	}
 };
 if($@) {
