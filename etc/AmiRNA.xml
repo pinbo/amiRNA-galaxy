@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<!-- try xmllint conf.xml for validation -->
+
+<config>
+	<!--Fasta transcript library path-->
+	<index_path>/Users/galaxy/amirna</index_path>
+
+	<!--tmp path-->
+	<tmp_path>/tmp</tmp_path>
+	
+	<!-- Database -->
+	
+	<!-- MySQL -->
+	<!--
+	<database>
+		<engine>MySQL</engine>
+		<dsn>DBI:mysql:database=amirnadb;host=localhost;port=3306</dsn>
+		<user>amirna</user>
+		<password>passwd</password> 
+	</database>
+	-->
+	<!-- SQLite -->
+	<database>
+		<engine>SQLite</engine>
+		<dsn>dbi:SQLite:dbname=/Users/galaxy/amirna/amirna.db</dsn>
+		<user>amirna</user>
+		<password>passwd</password> 
+	</database>
+	
+	<!-- External programs -->
+	<external_programs>
+		<!-- Path and binary of user selectable mapping tool (supported: vmatch, genomemapper) -->
+		<mapping>
+			<path>/Users/galaxy/bin2</path>
+			<binary>genomemapper</binary>
+		</mapping>
+
+		<!-- Path to ViennaRNA (RNAcofold and RNAup) -->
+		<folding>
+			<path>/Users/galaxy/bin2</path>
+		</folding>
+	</external_programs>
+
+	<!-- Constraints -->
+	<MAX_JOB_NUMBER>50</MAX_JOB_NUMBER>
+	<MAX_CALCULATIONS_PER_IP>3</MAX_CALCULATIONS_PER_IP>
+	<MAX_CALCULATIONS_PER_EMAIL>3</MAX_CALCULATIONS_PER_EMAIL>
+</config>

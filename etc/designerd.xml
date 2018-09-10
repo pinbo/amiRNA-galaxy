@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!-- try xmllint designerd.xml for validation -->
+
+<config>
+	<!-- Location of the AmiRNA configuration file -->
+	<amirna_config>/Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml</amirna_config>
+	
+	<!-- Maximum number of parallel computations. 
+		 You need approx. 1GB free RAM per child -->
+	<max_childs>2</max_childs>
+	
+	<!-- Time period to sleep if there are no queued jobs -->
+	<no_jobs_sleep_time>120</no_jobs_sleep_time>
+	
+	<!-- Location of PID and log file -->
+	<pid_file>/Users/galaxy/wmd3-3.1/designerd.pid</pid_file>
+	<log_file>/Users/galaxy/wmd3-3.1/designer_log</log_file>
+	
+	<!-- Mailhost to send emails -->
+	<mailhost>smtp.mydomain.org</mailhost>
+	
+	<!-- The from email address which should appear in results emails -->
+	<from_email>wmd@mydomain.org</from_email>
+	
+	<!-- The URL of WMD3 -->		
+	<wmd3_webapp_url>http://www.mydomain.org/cgi-bin/wmd3/webapp.cgi</wmd3_webapp_url>
+</config>
