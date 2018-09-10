@@ -1,6 +1,6 @@
 <tool id="Get_amiRNA" name="amiRNA design with WMD3">
   <description>amiRNA design</description>
-  <command>perl '$__tool_directory__/bin/test_Designer.pl'-g $genome -t $gene_list -m $min_number_targets -o $offtarget_list -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > amiRNA_list.txt
+  <command>perl '$__tool_directory__/bin/test_Designer.pl' -g $genome -t $gene_list -m $min_number_targets -o $offtarget_list -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > amiRNA_list.txt
   </command>
   
   <inputs>
