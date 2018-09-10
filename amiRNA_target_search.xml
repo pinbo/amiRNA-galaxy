@@ -22,27 +22,7 @@
 
 **OVERVIEW**
 
-Most of time, you only need to set the miRNA sequence you want to search. Other options I did not include here:
-
-<code>
-	transcript_library => $opt_g,
-	mismatches         => 5,
-	allow_gaps         => 0,	#  0 | 1 
-	strand             => 'rev',	#  fwd | rev | both 
-	remove_isoform     => 1,
-	one_hit_per_gene   => 1,
-	calculate_filter   => 1,	# 0 | 1 
-	apply_filter       => 1,        # 0 | 1 
-	calculate_folding  => "passed",	# all | passed | non
-	folding_backend    => "RNAcofold",	# RNAup | RNAcofold
-	temperature        => 23,	# 0 - 80 degree C
-	cutoff             => 70,	# 0 to 99
-	relaxed            => 1,	# 0 | 1
-	flanking           => 0,
-	showdesc           => 50,	# 0 - any, 0 = off
-	show_gene_length   => 0,
-	sort_mode          => 'ea',	# ea | ed | ga | gd | la | ld
-</code>
+Most of time, you only need to set the miRNA sequence you want to search. I did not include all the options available from the website (http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=TargetSearch;project=stdwmd).
 
 Let me know if you are interested in some of these options, so I can add them here.
 

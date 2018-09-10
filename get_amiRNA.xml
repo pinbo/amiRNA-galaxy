@@ -21,7 +21,25 @@
 
 **OVERVIEW**
 
+This tool is just a migration of the WMD3 amiRNA design tools (Web MicroRNA Designer, http://wmd3.weigelworld.org) to Galaxy for us to easy add wheat cDNA libraries. 
 
+WMD3 has very good help content for you to understand how to design and how to select amiRNAs (http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=Help;project=stdwmd).
+
+Here I only allow using the gene names other than user provided fasta sequences to design amiRNAs.
+
+Basic Steps:
+
+1. Go to "Find best cDNA matches blast cDNA libraries" to blast your gene and find the names of similar genes;
+
+2. Input the gene names which you want the amiRNA to target;
+
+3. Set the mininum number of genes from the given list to target;
+
+4. You can also set the "Other advanced options to set the list of accepted off targets using "-o gene1,gene2,gene3"
+
+5. Select the library to search
+
+You can find other options from the WMD3 website and let me know if you think some are necessary.
 
 ------
 
