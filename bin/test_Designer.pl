@@ -62,7 +62,12 @@ my %user_param = (
 if(defined $opt_f) { $user_param{target_fasta} = $opt_f; }
 if(defined $opt_t) { $user_param{target_genes} = $opt_t; }
 if(defined $opt_a) { $user_param{annotated}    = $opt_a; }
-if(defined $opt_o) { $user_param{offtargets}   = $opt_o; }
+if( (defined $opt_o) && ($opt_o ne "0") ) { $user_param{offtargets}   = $opt_o; }
+
+while (my ($key, $value) = each (%user_param))
+{
+  print STDERR "$key => $value\n";
+}
 
 eval {
 	my $amiRNAdesigner = AmiRNA::Designer::AmiRNADesigner->new(%user_param);
