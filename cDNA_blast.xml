@@ -1,6 +1,6 @@
 <tool id="cDNA_blast" name="Find best cDNA matches">
   <description>blast cDNA libraries</description>
-  <command>blastn -task blastn -db $genome -query $input -outfmt "7 std qlen slen" -num_threads 3 -word_size 7 -num_alignments 10 -evalue 1e-5 -out cDNA_blast.txt
+  <command>blastn -task blastn -db $genome -query $input -outfmt "7 std qlen slen" -num_threads 3 -word_size 7 -num_alignments 20 -evalue 1e-5 -out cDNA_blast.txt
   </command>
   
   <inputs>
