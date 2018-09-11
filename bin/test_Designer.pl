@@ -66,7 +66,7 @@ if( (defined $opt_o) && ($opt_o ne "0") ) { $user_param{offtargets}   = $opt_o; 
 
 while (my ($key, $value) = each (%user_param))
 {
-  print STDERR "$key => $value\n";
+  print "$key => $value\n";
 }
 
 eval {
