@@ -35,7 +35,7 @@ Basic Steps:
 
 3. Set the mininum number of genes from the given list to target;
 
-4. You can also set the "Other advanced options to set the list of accepted off targets using "-o gene1,gene2,gene3"
+4. You can also set the list of accepted off targets using "gene1,gene2,gene3"
 
 5. Select the library to search
 

@@ -28,7 +28,14 @@ Let me know if you are interested in some of these options, so I can add them he
 
 ------
 
+**A trick to highlight the mismatches**
+
+Mismatches are showed in uppercase in the last column of the output. You can copy the output content in a word file, then use "**Adavanced Find**" in word (on the right corner of the Home tab; you can also use Ctrl+H to show the Find and Replace window, but select **Find** tab) and choose "Use wildcards" in the options. Put "[ATGC]" (no quotes) and select "Find in" selection or all documents to find all the capital letters. Then you can set the colors of the selections. A tutorial is here: https://www.datanumen.com/blogs/2-quick-ways-find-words-initial-letters-capitalized-word-document/
+
+------
+
 For more information go to : https://github.com/pinbo/amiRNA-galaxy
+
   </help>
 
 </tool>
