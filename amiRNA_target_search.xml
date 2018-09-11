@@ -1,6 +1,6 @@
 <tool id="miRNA-target-search" name="search potential targets of miRNAs">
   <description>for a miRNA sequence</description>
-  <command>perl $__tool_directory__/bin/test_TargetSearch.pl -m $mismatches -t $temperature -p $allow_gap -g $genome -i $miRNAseq -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > potential_targets.txt
+  <command>perl '$__tool_directory__/bin/test_TargetSearch.pl' -m $mismatches -t $temperature -p $allow_gap -g $genome -i $miRNAseq -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > potential_targets.txt
   </command>
   
   <inputs>
