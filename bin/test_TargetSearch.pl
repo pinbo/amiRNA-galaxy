@@ -82,7 +82,7 @@ if($@) {
 
 ### Search targets for each input miRNA
 
-my @query = split " ", $opt_i;
+my @query = split /__cn__|,/, $opt_i;
 
 foreach my $mirna (@query){
 
