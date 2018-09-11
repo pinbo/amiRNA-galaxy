@@ -86,23 +86,29 @@ eval {
 	while(<MIRNA>) {
 		chomp;
 		if($_ ne "") {
-			my $name = $_;
-			my $query = <MIRNA>;
+			#my $name = $_;
+			#my $query = <MIRNA>;
+			my $query = $_;
 			chomp($query);
+			print "\n\nMiRNA-Seq: $query\n\n";
+			print "Target\tGene_length\tBegin\tPosition_Percent\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\n";
 
 			### Search for query string
 			$targetSearch->search($query);
 
 			# Loop through targets and print results
-			print "$name";
+			#print "$name";
 			foreach my $target ( @{ $$targetSearch{searchResults}{targets} } ) {
 				if( ($target->{filter_passed} == 1) && ($target->{message} eq "passed") ) {
-					print "\t";
-					print $target->{seq_id} . ",";
-					print $target->{begin} . ",";
-					print $target->{mismatches} . ",";
-					print sprintf("%.1f", $target->{dG}) . ",";
-					print sprintf("%.1f", $target->{dG_ratio});
+					print $target->{seq_id} . "\t";
+					print $target->{gene_length} . "\t";
+					print $target->{begin} . "\t";
+					print sprintf("%.1f", $target->{begin} / $target->{gene_length} * 100) . "\t";
+					print $target->{mismatches} . "\t";
+					print sprintf("%.1f", $target->{dG}) . "\t";
+					print sprintf("%.1f", $target->{dG_ratio}) . "\t";
+					print lc($target->{query_string}) . "\t";
+					print markdiff($target->{query_string}, $target->{target_string}) . "\n";
 				}
 			}
 			print "\n";
@@ -121,6 +127,18 @@ if($@) {
 
 exit(0);
 
+# mark the difference as lowercase
+sub markdiff {
+my ($s1, $s2) = @_;
+my $c3 = "";
+for my $i (0..length($s2)-1){
+    my $c1 = substr($s1, $i, 1);
+    my $c2 = substr($s2, $i, 1);
+    $c3 .= $c1 eq $c2 ? lc($c2) : $c2;
+       
+}
+return $c3;
+}
 
 sub usage {
 	return <<EOT
@@ -131,13 +149,13 @@ Usage: $0 [-m mismatches] [-t temperature] [-c config_file] -g <transcript_libra
 Available Options:
 
 -g      genome/transcript_library
--f      Input miRNAs as fasta file (no empty lines allowed)
+-f      Input miRNAs as a file: each line is a miRNA sequence
 -m      Mismatches, optional, default 5
 -t      Temperature, optional, default 23C
 -c      configfile, optional, default /etc/amirna/AmiRNA.conf
 --help	This help.
 
-Example: perl batch_TargetSearch.pl -g TAIR8_cdna_20080412 -f ATHMIRNA.fa
+Example: perl batch_TargetSearch.pl -g TAIR8_cdna_20080412 -f miRNA-seq.txt
 
 EOT
 ;

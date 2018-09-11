@@ -1,10 +1,10 @@
 <tool id="miRNA-target-search" name="search potential targets of miRNAs">
   <description>for a miRNA sequence</description>
-  <command>perl '$__tool_directory__/bin/test_TargetSearch.pl' -m $mismatches -t $temperature -p $allow_gap -g  $genome -i $miRNAseq -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > potential_targets.txt
+  <command>perl $__tool_directory__/bin/test_TargetSearch.pl -m $mismatches -t $temperature -p $allow_gap -g $genome -i $miRNAseq -c /Users/galaxy/wmd3-3.1/AmiRNA/etc/AmiRNA.xml > potential_targets.txt
   </command>
   
   <inputs>
-    <param name="miRNAseq" size="100" type="text" value="" label="miRNA sequence"/>
+    <param name="miRNAseq" size="100" type="text" value="" area="true" size="5x25" label="miRNA sequences (each line is one miRNA)"/>
     <param name="mismatches" size="100" type="text" value="5" label="Mismatches, optional, default 5"/>
     <param name="temperature" size="100" type="text" value="23" label="Temperature, optional, default 23C"/>
     <param name="allow_gap" size="100" type="text" value="0" label="Allow gaps, optional, default 0, not allowed. 1 for allow"/>

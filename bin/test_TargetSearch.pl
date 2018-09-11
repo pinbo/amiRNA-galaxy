@@ -81,14 +81,19 @@ if($@) {
 
 
 ### Search targets for each input miRNA
+
+my @query = split " ", $opt_i;
+
+foreach my $mirna (@query){
+
 eval {
-	chomp($opt_i);
-	print "\n\nMiRNA-Seq: $opt_i\n\n";
+	chomp($mirna);
+	print "\n\nMiRNA-Seq: $mirna\n\n";
 	print "Target\tGene_length\tBegin\tPosition_Percent\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\n";
 
 	### Search for query string
 	#print "Test 1";
-	$targetSearch->search($opt_i);
+	$targetSearch->search($mirna);
 	#print "Test 2";
 
 	# Loop through targets and print results
@@ -109,6 +114,9 @@ eval {
 		}
 	}
 };
+
+}
+
 if($@) {
         print "Some errors occured. Please send the following error message to wmd\@weigelworld.org.\n";
         print "Start error message.\n" . $@->{'msg'} . "\n" . $@->{'errno'} . "\n" . $@->{'subject'} . "\n";
