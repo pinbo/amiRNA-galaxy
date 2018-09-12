@@ -89,7 +89,7 @@ foreach my $mirna (@query){
 eval {
 	chomp($mirna);
 	print "\n\nMiRNA-Seq: $mirna\n\n";
-	print "Target\tGene_length\tBegin\tPosition_Percent\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\n";
+	print "Target\tGene_length\tBegin\tPosition_Percent\tMismatches\tdG\tdG_ratio\tmiRNA-RC\tTarget-Seq\tMask\n";
 
 	### Search for query string
 	#print "Test 1";
@@ -108,7 +108,8 @@ eval {
 			print sprintf("%.1f", $target->{dG}) . "\t";
 			print sprintf("%.1f", $target->{dG_ratio}) . "\t";
 			print lc($target->{query_string}) . "\t";
-			print markdiff($target->{query_string}, $target->{target_string}) . "\n";
+			my ($seq1, $seq2) = markdiff($target->{query_string}, $target->{target_string});
+			print $seq1 . "\t" . $seq2 . "\n";
 			#print $target->{sequence} . "\t";
 			#print $target->{message} . "\n";
 		}
@@ -133,13 +134,14 @@ exit(0);
 sub markdiff {
 my ($s1, $s2) = @_;
 my $c3 = "";
+my $c4 = "";
 for my $i (0..length($s2)-1){
     my $c1 = substr($s1, $i, 1);
     my $c2 = substr($s2, $i, 1);
     $c3 .= $c1 eq $c2 ? lc($c2) : $c2;
-       
+    $c4 .= $c1 eq $c2 ? "-" : $c2; 
 }
-return $c3;
+return ($c3, $c4);
 }
 
 sub usage {
@@ -154,11 +156,11 @@ Available Options:
 -i      Input miRNA as string
 -m      Mismatches, optional, default 5
 -t      Temperature, optional, default 23C
--c      configfile, optional, default /etc/AmiRNA//AmiRNA.xml
+-c      configfile, optional, default /etc/AmiRNA/AmiRNA.xml
 -p      allow gaps, optional, 1 for yes, 0 for no, default 0
 --help	This help.
 
-Example: $0 -g TAIR8_cdna_20080412 -i ugacagaagagagugagcac -c /etc/AmiRNA/AmiRNA.xml
+Example: $0 -g TAIR8_cdna_20080412 -i ugacagaagagagugagcac -c ./etc/AmiRNA.xml
 
 EOT
 ;
